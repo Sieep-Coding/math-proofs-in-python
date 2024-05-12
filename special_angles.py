@@ -40,7 +40,7 @@ x = r * math.sin(math.pi / 3)
 sin_pi_3 = sphere_volume / (math.pi * x**3)
 print(f"sin(π/3) = {sin_pi_3:.4f}")
 
-# Visualizations
+# Visualization
 fig = go.Figure(data=[
    go.Mesh3d(
        x=[0, r, r, 0, 0, r, r, 0],
@@ -51,17 +51,17 @@ fig = go.Figure(data=[
        name='Cube'
    ),
    go.Scatter3d(
-       x=[0, sphere_radius*math.cos(math.pi/4)*math.cos(math.pi/6)],
-       y=[0, sphere_radius*math.cos(math.pi/4)*math.sin(math.pi/6)],
-       z=[0, sphere_radius*math.sin(math.pi/4)],
+       x=[0, diag_length/2],
+       y=[0, diag_length/2],
+       z=[0, 0],
        mode='lines',
        line=dict(color='black', width=2),
        name='Diagonal'
    ),
    go.Surface(
-       x=[0, diag_length/2],
-       y=[0, diag_length/2],
-       z=[0, 0],
+       x=[[0, diag_length/2], [0, diag_length/2]],
+       y=[[0, 0], [diag_length/2, diag_length/2]],
+       z=[[0, 0], [0, 0]],
        colorscale='Viridis',
        opacity=0.8,
        name='Sphere'
@@ -78,7 +78,6 @@ fig.update_layout(
 )
 
 fig.show()
-
 # Additional Examples
 #======================
 
